@@ -1,18 +1,17 @@
-// Start here
+// Pizzabot: start here
 
 // Step 1 - Welcome and introduction
-// 1a - initial welcome message
+// 1a - Initial welcome message
 alert(
   `Welcome to our Javascript Pizzeria. Ready to Start? - Click 'OK' to begin.`
 );
-// 1b - ask for user name
+// 1b - Ask for user name
 const userName = prompt("What's your name?");
-// 1c - greet user with their name
+// 1c - Greet user with their name
 alert(`Hi and welcome, ${userName}!`);
 
-
 // Step 2 - Food choice
-// 2a - present a menu to the user and ask for their choice
+// 2a - Present a menu to the user and ask for their choice
 let attempts = 0;
 let foodChoice;
 
@@ -36,10 +35,10 @@ while (attempts < 3) {  // Allow up to 3 attempts
   }
 }
 
-
 // Step 3 - Subtype choice
+let subChoice;
 if (foodChoice === "1") {
-  // Proceed to pizza selection (Step 3a)
+  // Pizza selection
   const pizzaChoice = prompt(`
     You've chosen pizza. What type of pizza would you like?
     1. Margherita
@@ -57,26 +56,19 @@ if (foodChoice === "1") {
   `);
 
   // Handle pizza selection (validate and confirm)
-  let pizzaSelection;
-  if (pizzaChoice === "1") pizzaSelection = "Margherita";
-  else if (pizzaChoice === "2") pizzaSelection = "Pepperoni";
-  else if (pizzaChoice === "3") pizzaSelection = "BBQ Chicken";
-  else if (pizzaChoice === "4") pizzaSelection = "Meat Lovers";
-  else if (pizzaChoice === "5") pizzaSelection = "Four Cheese";
-  else if (pizzaChoice === "6") pizzaSelection = "Buffalo Chicken";
-  else if (pizzaChoice === "7") pizzaSelection = "Hawaiian";
-  else if (pizzaChoice === "8") pizzaSelection = "Chicken Parmesan";
-  else if (pizzaChoice === "9") pizzaSelection = "Supreme";
-  else if (pizzaChoice === "10") pizzaSelection = "Pesto Chicken";
-
-  if (pizzaSelection) {
-    alert(`You selected: ${pizzaSelection} pizza! - Click 'OK' fir the next step.`);
+  const pizzaOptions = [
+    "Margherita", "Pepperoni", "BBQ Chicken", "Meat Lovers", "Four Cheese",
+    "Buffalo Chicken", "Hawaiian", "Chicken Parmesan", "Supreme", "Pesto Chicken"
+  ];
+  subChoice = pizzaOptions[pizzaChoice - 1]; // Retrieve pizza name by index
+  if (subChoice) {
+    alert(`You selected: ${subChoice} pizza! - Click 'OK' for the next step.`);
   } else {
     alert("Sorry, that's not a valid pizza choice. Please refresh and try again.");
   }
 
 } else if (foodChoice === "2") {
-  // Proceed to pasta selection (Step 3b)
+  // Pasta selection
   const pastaChoice = prompt(`
     You've chosen pasta. What type of pasta would you like?
     1. Spaghetti
@@ -94,26 +86,19 @@ if (foodChoice === "1") {
   `);
 
   // Handle pasta selection (validate and confirm)
-  let pastaSelection;
-  if (pastaChoice === "1") pastaSelection = "Spaghetti";
-  else if (pastaChoice === "2") pastaSelection = "Penne";
-  else if (pastaChoice === "3") pastaSelection = "Fettuccine";
-  else if (pastaChoice === "4") pastaSelection = "Macaroni";
-  else if (pastaChoice === "5") pastaSelection = "Ravioli";
-  else if (pastaChoice === "6") pastaSelection = "Lasagna";
-  else if (pastaChoice === "7") pastaSelection = "Tortellini";
-  else if (pastaChoice === "8") pastaSelection = "Linguine";
-  else if (pastaChoice === "9") pastaSelection = "Rigatoni";
-  else if (pastaChoice === "10") pastaSelection = "Gnocchi";
-
-  if (pastaSelection) {
-    alert(`You selected: ${pastaSelection} pasta! - Click 'OK' fir the next step.`);
+  const pastaOptions = [
+    "Spaghetti", "Penne", "Fettuccine", "Macaroni", "Ravioli",
+    "Lasagna", "Tortellini", "Linguine", "Rigatoni", "Gnocchi"
+  ];
+  subChoice = pastaOptions[pastaChoice - 1]; // Retrieve pasta name by index
+  if (subChoice) {
+    alert(`You selected: ${subChoice} pasta! - Click 'OK' for the next step.`);
   } else {
     alert("Sorry, that's not a valid pasta choice. Please refresh and try again.");
   }
 
 } else if (foodChoice === "3") {
-  // Proceed to salad selection (Step 3c)
+  // Salad selection
   const saladChoice = prompt(`
     You've chosen salad. What type of salad would you like?
     1. Caesar
@@ -131,28 +116,18 @@ if (foodChoice === "1") {
   `);
 
   // Handle salad selection (validate and confirm)
-  let saladSelection;
-  if (saladChoice === "1") saladSelection = "Caesar";
-  else if (saladChoice === "2") saladSelection = "Greek";
-  else if (saladChoice === "3") saladSelection = "Garden";
-  else if (saladChoice === "4") saladSelection = "Caprese";
-  else if (saladChoice === "5") saladSelection = "Mediterranean";
-  else if (saladChoice === "6") saladSelection = "Avocado & Cucumber Salad";
-  else if (saladChoice === "7") saladSelection = "Cobb Salad";
-  else if (saladChoice === "8") saladSelection = "Spinach & Bacon Salad";
-  else if (saladChoice === "9") saladSelection = "Lemon & Herb Salad";
-  else if (saladChoice === "10") saladSelection = "Roasted Sweet Potato Salad";
-
-  if (saladSelection) {
-    alert(`You selected: ${saladSelection} salad! - Click 'OK' fir the next step.`);
+  const saladOptions = [
+    "Caesar", "Greek", "Garden", "Caprese", "Mediterranean",
+    "Avocado & Cucumber Salad", "Cobb Salad", "Spinach & Bacon Salad",
+    "Lemon & Herb Salad", "Roasted Sweet Potato Salad"
+  ];
+  subChoice = saladOptions[saladChoice - 1]; // Retrieve salad name by index
+  if (subChoice) {
+    alert(`You selected: ${subChoice} salad! - Click 'OK' for the next step.`);
   } else {
     alert("Sorry, that's not a valid salad choice. Please refresh and try again.");
   }
-
-} else {
-  alert("Sorry, something went wrong. Please refresh the page and try again.");
 }
-
 
 // Step 4 - Age
 let ageGroup; // Declare variable to store age group
@@ -173,12 +148,25 @@ while (ageAttempts < 3) { // Allow up to 3 attempts
 }
 
 if (ageGroup === "child") {
-  alert(`You've ordered a meal for a child. - Click 'OK' fir the next step.`);
+  alert(`You've ordered a meal for a child. - Click 'OK' for the next step.`);
 } else if (ageGroup === "adult") {
-  alert(`You've ordered a meal for an adult. - Click 'OK' fir the next step.`);
+  alert(`You've ordered a meal for an adult. - Click 'OK' for the next step.`);
 } else {
   alert("Sorry, too many invalid attempts. Please refresh the page and try again.");
 }
 
 // Step 5 - Order confirmation
-// Your code goes here
+const confirmation = confirm(`
+  You've selected the following:
+  - Food: ${foodChoice === "1" ? "Pizza" : foodChoice === "2" ? "Pasta" : "Salad"}
+  - Sub-choice: ${subChoice} 
+  - Age group: ${ageGroup}
+
+  Would you like to confirm your order?
+`);
+
+if (confirmation) {
+  alert(`Thank you, ${userName}! Your meal (one ${ageGroup}-sized ${subChoice}) will be prepared. See you soon!`);
+} else {
+  alert("No problem! We hope to see you again soon.");
+}
