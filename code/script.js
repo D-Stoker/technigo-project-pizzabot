@@ -10,6 +10,7 @@ const userName = prompt("What's your name?");
 // 1c - greet user with their name
 alert(`Hi and welcome, ${userName}!`);
 
+
 // Step 2 - Food choice
 // 2a - present a menu to the user and ask for their choice
 let attempts = 0;
@@ -35,10 +36,12 @@ while (attempts < 3) {  // Allow up to 3 attempts
   }
 }
 
+
+// Step 3 - Subtype choice
 if (foodChoice === "1") {
   // Proceed to pizza selection (Step 3a)
   const pizzaChoice = prompt(`
-    Great choice! What type of pizza would you like?
+    You've chosen pizza. What type of pizza would you like?
     1. Margherita
     2. Pepperoni
     3. BBQ Chicken
@@ -67,7 +70,7 @@ if (foodChoice === "1") {
   else if (pizzaChoice === "10") pizzaSelection = "Pesto Chicken";
 
   if (pizzaSelection) {
-    alert(`You selected: ${pizzaSelection} pizza! Enjoy your meal.`);
+    alert(`You selected: ${pizzaSelection} pizza! - Click 'OK' fir the next step.`);
   } else {
     alert("Sorry, that's not a valid pizza choice. Please refresh and try again.");
   }
@@ -75,7 +78,7 @@ if (foodChoice === "1") {
 } else if (foodChoice === "2") {
   // Proceed to pasta selection (Step 3b)
   const pastaChoice = prompt(`
-    Awesome! What type of pasta would you like?
+    You've chosen pasta. What type of pasta would you like?
     1. Spaghetti
     2. Penne
     3. Fettuccine
@@ -104,7 +107,7 @@ if (foodChoice === "1") {
   else if (pastaChoice === "10") pastaSelection = "Gnocchi";
 
   if (pastaSelection) {
-    alert(`You selected: ${pastaSelection} pasta! Enjoy your meal.`);
+    alert(`You selected: ${pastaSelection} pasta! - Click 'OK' fir the next step.`);
   } else {
     alert("Sorry, that's not a valid pasta choice. Please refresh and try again.");
   }
@@ -112,7 +115,7 @@ if (foodChoice === "1") {
 } else if (foodChoice === "3") {
   // Proceed to salad selection (Step 3c)
   const saladChoice = prompt(`
-    Nice! What type of salad would you like?
+    You've chosen salad. What type of salad would you like?
     1. Caesar
     2. Greek
     3. Garden
@@ -141,7 +144,7 @@ if (foodChoice === "1") {
   else if (saladChoice === "10") saladSelection = "Roasted Sweet Potato Salad";
 
   if (saladSelection) {
-    alert(`You selected: ${saladSelection} salad! Enjoy your meal.`);
+    alert(`You selected: ${saladSelection} salad! - Click 'OK' fir the next step.`);
   } else {
     alert("Sorry, that's not a valid salad choice. Please refresh and try again.");
   }
@@ -152,7 +155,30 @@ if (foodChoice === "1") {
 
 
 // Step 4 - Age
-// Your code goes here
+let ageGroup; // Declare variable to store age group
+let ageAttempts = 0; // Initialize attempt counter
+
+while (ageAttempts < 3) { // Allow up to 3 attempts
+  ageGroup = prompt(`
+    Is this meal for a child or an adult?
+    Please type 'child' or 'adult':
+  `).toLowerCase(); // Normalize input to lowercase for easier comparison
+
+  if (ageGroup === "child" || ageGroup === "adult") {
+    break; // Exit the loop if the input is valid
+  } else {
+    alert("Invalid choice. Please type 'child' or 'adult'.");
+    ageAttempts++;
+  }
+}
+
+if (ageGroup === "child") {
+  alert(`You've ordered a meal for a child. - Click 'OK' fir the next step.`);
+} else if (ageGroup === "adult") {
+  alert(`You've ordered a meal for an adult. - Click 'OK' fir the next step.`);
+} else {
+  alert("Sorry, too many invalid attempts. Please refresh the page and try again.");
+}
 
 // Step 5 - Order confirmation
 // Your code goes here
